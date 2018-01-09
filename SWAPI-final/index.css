@@ -1,0 +1,37 @@
+body {
+  width: 100vw;
+  height : 100vh;
+}
+#heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 25vh;
+  border-bottom-color:black;
+  border-bottom-style: solid;
+}
+#heading-text {
+  display : block;
+  padding: 10px 20px 10px 20px;
+  font-size: 35px;
+}
+#subheading-text {
+  display: block;
+  padding: 10px 20px 10px 20px;
+  font-size : 25px;
+}
+
+#search {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-top : 20px;
+  height: 15vh;
+}
+
+#char-name {
+  padding : 10px 20px 10px 30px;
+}
