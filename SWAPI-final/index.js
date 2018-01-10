@@ -26,6 +26,7 @@ window.onload = function () {
               // Parsing the response from AJAX call as a JSON object
               var response = JSON.parse(http.response);
               // Call the displayResults function to
+              // display results
               displayResults(response);
             }
             else {
@@ -46,14 +47,14 @@ window.onload = function () {
 
       // Add the names fo all charcters to list
       var resultsList = document.getElementById('results-list')
-
+      resultsList.innerHTML = "";
       response.results.forEach(function(result) {
         var li = document.createElement('li');
         li.appendChild(document.createTextNode(result.name));
         resultsList.appendChild(li);
       });
 
-      
+
     }
 
 };
