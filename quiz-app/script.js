@@ -20,10 +20,10 @@ var questions = [
 	{
 		question: 'Javascript is ______ ?',
 		answer: 'Oh my God, Wow',
-		options: ['Awesome', 'Fucking Amazing', 'Life', 'Oh my God, Wow'],
+		options: ['Awesome', 'Amazing', 'Life', 'Oh my God, Wow'],
 		ansId: 3
 	}
-]
+];
 
 var qNo = 0;
 var score = 0;
@@ -49,25 +49,27 @@ window.onload = function() {
 		}
 	});
 
-	for(var i = 0; i < options.length; i++) {
-		options[i].addEventListener('click', function(e) {
-			options[questions[qNo].ansId].classList.add('correct');
-			if(e.target.innerHTML == questions[qNo].answer)
-				score++;
-			else 
-				e.target.classList.add('incorrect');
-			setTimeout(function() {
-				if(qNo + 1 >= questions.length) {
-					quiz_card.style.display = 'none';
-					results_card.style.display = 'block';
-					result.innerHTML = score + ' / ' + questions.length;
-				}
-				else {
-					qNo++;
-					setQuestion();
-				}
-			}, 1000);
-		});
+	for(var i = 0; i < options.length; i++)
+		options[i].addEventListener('click', onOptionClick);
+
+	function onOptionClick(e) {
+		var correct_option_index = questions[qNo].ansId;
+		options[correct_option_index].classList.add('correct');
+		if(e.target.innerHTML == questions[qNo].answer)
+			score++;
+		else 
+			e.target.classList.add('incorrect');
+		setTimeout(function() {
+			if(qNo + 1 >= questions.length) {
+				quiz_card.style.display = 'none';
+				results_card.style.display = 'block';
+				result.innerHTML = score + ' / ' + questions.length;
+			}
+			else {
+				qNo++;
+				setQuestion();
+			}
+		}, 1000);
 	}
 
 	function setQuestion() {
