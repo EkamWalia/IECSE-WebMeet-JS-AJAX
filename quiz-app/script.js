@@ -13,6 +13,11 @@ var questions = [
 		question: '2 x 4 = ?',
 		answer: '8',
 		options: ['8', '34.225', 'Apple', 'All of the above']
+	},
+	{
+		question: 'Javascript is ______ ?',
+		answer: 'Oh my God, Wow',
+		options: ['Awesome', 'Fucking Amazing', 'Life', 'Oh my God, Wow']
 	}
 ]
 
