@@ -60,6 +60,19 @@ window.onload = function() {
 		}
 	});
 
+	// Loads question and options
+	function setQuestion() {
+		question.innerHTML = questions[qNo].question;
+		for(var i = 0; i < options.length; i++) {
+
+			// Removes indicators if any
+			options[i].classList.remove('incorrect');
+			options[i].classList.remove('correct');
+
+			options[i].innerHTML = questions[qNo].options[i];
+		}
+	}
+
 	// Listeners for 'click' event are added to options
 	for(var i = 0; i < options.length; i++)
 		// onOptionClick function runs when an option is clicked
@@ -94,19 +107,6 @@ window.onload = function() {
 				setQuestion();
 			}
 		}, 1000);
-	}
-
-	// Loads question and options
-	function setQuestion() {
-		question.innerHTML = questions[qNo].question;
-		for(var i = 0; i < options.length; i++) {
-
-			// Removes indicators if any
-			options[i].classList.remove('incorrect');
-			options[i].classList.remove('correct');
-
-			options[i].innerHTML = questions[qNo].options[i];
-		}
 	}
 
 };
