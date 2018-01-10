@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" type="application/javascript"></script>
+    <title>Star Wars Characters API</title>
+</head>
+<body>
+
+  <!-- Heading Container -->
+  <div id="heading">
+    <div id="heading-text">
+        Star Wars API
+    </div>
+    <div id="subheading-text">
+        A complete database of all Star Wars characters
+    </div>
+  </div>
+
+  <div id="search">
+    <!-- Input Field -->
+    <input type="text" id="char-name" placeholder="Enter name of the character you want to find">
+    <button type="button" id="search-button">Search</button>
+  </div>
+
+  <!-- Search Results -->
+  <div id="search-results">
+    <div id="results-count"></div>
+    <div>
+      <ul id="results-list">
+        <!-- Results from the AJAX call are displayed here -->
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
