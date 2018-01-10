@@ -1,3 +1,4 @@
+// Array of questions, answers and options
 var questions = [
 	{
 		question: '1 + 1 = ?',
@@ -25,11 +26,14 @@ var questions = [
 	}
 ];
 
+// Initial question number and score
 var qNo = 0;
 var score = 0;
 
+// Code that runs once the window is loaded
 window.onload = function() {
 
+	// Referencing DOM elements
 	var submit_btn = document.getElementById('submit-btn');
 	var name_input = document.getElementById('name');
 	var heading = document.getElementById('heading');
@@ -39,5 +43,7 @@ window.onload = function() {
 	var options = document.getElementsByClassName('option');
 	var results_card = document.getElementById('results-card');
 	var result = document.getElementById('result');	
+
+	// Rest of the js goes here
 
 };

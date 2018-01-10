@@ -1,3 +1,4 @@
+// Array of questions, answers and options
 var questions = [
 	{
 		question: '1 + 1 = ?',
@@ -25,11 +26,14 @@ var questions = [
 	}
 ];
 
+// Initial question number and score
 var qNo = 0;
 var score = 0;
 
+// Code that runs once the window is loaded
 window.onload = function() {
 
+	// Referencing DOM elements
 	var submit_btn = document.getElementById('submit-btn');
 	var name_input = document.getElementById('name');
 	var heading = document.getElementById('heading');
@@ -40,43 +44,67 @@ window.onload = function() {
 	var results_card = document.getElementById('results-card');
 	var result = document.getElementById('result');
 
+	// When submit is clicked, title is changed to a greeting and question is loaded
 	submit_btn.addEventListener('click', function() {
-		if(name_input.value) {
+		if(name_input.value) { // If the input box is not empty
+
+			// Heading ('QUIZ') is changed to a greeting ('Hello <name>')
 			heading.innerHTML = 'Hello, ' + name_input.value;
+
+			// The card for name input is hiddenn and the quiz card is displayed
 			name_card.style.display = 'none';
 			quiz_card.style.display = 'block';
+
+			// The current question (qNo) is loaded
 			setQuestion();
 		}
 	});
 
+	// Listeners for 'click' event are added to options
 	for(var i = 0; i < options.length; i++)
+		// onOptionClick function runs when an option is clicked
 		options[i].addEventListener('click', onOptionClick);
 
-	function onOptionClick(e) {
+	function onOptionClick(e) { // e is the event (here click event)
+
+		// Turns correct option green
+		// Adds 'correct' class to the option's div
 		var correct_option_index = questions[qNo].ansId;
 		options[correct_option_index].classList.add('correct');
-		if(e.target.innerHTML == questions[qNo].answer)
+		
+		if(e.target.innerHTML == questions[qNo].answer) // If the chosen answer is correct 
 			score++;
 		else 
+			// Turns chosen option red
 			e.target.classList.add('incorrect');
+
+		// Waits 1 second and runs function
 		setTimeout(function() {
-			if(qNo + 1 >= questions.length) {
+			if(qNo + 1 >= questions.length) { // If questions are done
+
+				// Hide quiz card and show score card with score
 				quiz_card.style.display = 'none';
 				results_card.style.display = 'block';
 				result.innerHTML = score + ' / ' + questions.length;
 			}
-			else {
+			else { // Questions still left
+
+				//Loads the next question
 				qNo++;
 				setQuestion();
 			}
 		}, 1000);
 	}
 
+	// Loads question and options
 	function setQuestion() {
 		question.innerHTML = questions[qNo].question;
 		for(var i = 0; i < options.length; i++) {
+
+			// Removes indicators if any
 			options[i].classList.remove('incorrect');
 			options[i].classList.remove('correct');
+
 			options[i].innerHTML = questions[qNo].options[i];
 		}
 	}
